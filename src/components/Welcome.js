@@ -1,6 +1,6 @@
-function Welcome()
+function Welcome(props)
 {
-    return <h2>Welcome to React Learning!</h2>;
+    return <h2>Welcome {props.name}!</h2>;
 }
 
 export default Welcome;

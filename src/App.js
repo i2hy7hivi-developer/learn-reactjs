@@ -3,8 +3,10 @@ import Welcome from './components/Welcome'
 function App() {
   return (
     <>
-      Hello Rhythm,
-      <Welcome />
+      <Welcome name="Rhythm" />
+      <Welcome name="Sunil" />
+      <Welcome name="Prkash" />
+      <Welcome name="Dinesh" />
     </>
   );
 }
