@@ -1,19 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Welcome from './components/Welcome'
 
 function App() {
-  const projects = ['My Rental Spot', 'Rentler', 'Business My Rental Spot'];
+  useEffect(() => {
+    console.log('Component loaded.')
+  });
 
   return (
     <div>
-      <h2>Porjects List</h2>
-      <ul>
-        {
-          projects.map((project, index) => (
-            <li key={index}>{project}</li>
-          ))
-        }
-      </ul>
+      Check the console.
     </div>
   );
 }
