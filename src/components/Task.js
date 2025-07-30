@@ -35,15 +35,21 @@ function Task()
 	}
 
 	return (
-		<div>
-			<h2>Tasks</h2>
+		<div className="container mt-5">
+			<h2 className="mb-4">Tasks</h2>
 			<input
 				type="text"
+				className="form-control"
 				value={task}
 				placeholder="Enter Task"
 				onChange={(e) => setTask(e.target.value)}
 			/>
-			<button onClick={handleAdd}>Add Task</button>
+			<button
+				className="btn btn-primary"
+				onClick={handleAdd}
+				>
+					Add Task
+			</button>
 
 			<ul>
 				{
@@ -53,9 +59,13 @@ function Task()
 					) :
 					(
 						tasks.map((t, i) => (
-							<li key={i}>
+							<li
+								className="list-group-item d-flex justify-content-between align-items-center my-2"
+								key={i}>
 								{t}
-								<button onClick={() => handleDelete(i)}>Delete</button>
+								<button
+									className="btn btn-sm btn-outline-danger"
+									onClick={() => handleDelete(i)}>Delete</button>
 							</li>
 						))
 					)
