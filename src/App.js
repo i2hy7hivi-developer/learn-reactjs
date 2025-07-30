@@ -2,16 +2,11 @@ import { useState } from 'react';
 import Welcome from './components/Welcome'
 
 function App() {
-  const [name, setName] = useState('');
-
-  const handleChange = (e) => {
-    setName(e.target.value);
-  }
+  const isLoggedIn = false;
 
   return (
     <div>
-      <input type="text" placeholder="Enter Your Name" onChange={handleChange} />
-      <h2>Hello, {name}</h2>
+      <h2>{isLoggedIn ? "Welcome back!" : "Please login."}</h2>
     </div>
   );
 }
