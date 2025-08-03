@@ -23,6 +23,7 @@ function Task()
 	}, [tasks]);
 
 	const handleAdd = () => {
+		alert(task)
 		if (task.trim !== '') return;
 		setTasks([...tasks, task]);
 		setTask('');
@@ -45,7 +46,7 @@ function Task()
 				onChange={(e) => setTask(e.target.value)}
 			/>
 			<button
-				className="btn btn-primary"
+				className="btn btn-outline-primary"
 				onClick={handleAdd}
 				>
 					Add Task
