@@ -4,21 +4,27 @@ export default function ContactUs()
 {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
-	const [error, setError] = useState('');
+	const [errors, setErrors] = useState({});
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		let newErrors = {};
 
-		if (!name || !email) {
-			setError('Name and email are required.');
-			return;
+		if (!name.trim()) {
+			newErrors.name = 'Name is required.';
 		}
 
-		setError('');
+		if (!email.trim()) {
+			newErrors.email = 'Email is required.';
+		}
 
-		console.log('Name: ', name);
-		console.log('Email: ', email);
-		alert(`Submitted: ${name} - ${email}`);
+		setErrors(newErrors);
+
+		if (Object.keys(newErrors).length === 0) {
+			console.log('Name: ', name);
+			console.log('Email: ', email);
+			alert(`Submitted: ${name} - ${email}`);
+		}
 	}
 
 	return (
@@ -28,13 +34,11 @@ export default function ContactUs()
 		>
 			<h5>Contact Us</h5>
 
-			{error && <div className="alert alert-danger">{error}</div>}
-
 			<div className='mb-3'>
 				<label className='form-label'>Name</label>
 				<input
 					type='text'
-					className='form-control'
+					className={`form-control ${errors.name && 'is-invalid'}`}
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 					/>
@@ -43,7 +47,7 @@ export default function ContactUs()
 				<label className='form-label'>Email</label>
 				<input
 					type='email'
-					className='form-control'
+					className={`form-control ${errors.name && 'is-invalid'}`}
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
 					/>
